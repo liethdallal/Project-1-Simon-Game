@@ -1,3 +1,32 @@
 body {
+    background-image: url('./img/desktop-wallpaper-waterdrops-bright-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;  /* looked this format up online to make an image fill the entire page */
+}
+h1 {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+#title-line {
+    width: 50%;
+    height: 1vh;
+    border: none;
+    color: black;
     background-color: black;
+}
+#rules-box {
+    width: 20vh;
+    border: 0.5vh solid blue;
+    padding: 1vh;
+    margin: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: black;
+    color: aqua;
+}
+ol {
+    color: white;
+    font-size: 1.7vh;
 }

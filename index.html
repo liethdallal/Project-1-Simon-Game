@@ -10,12 +10,36 @@
 
     <script defer src="./script.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap" rel="stylesheet">
+
     <title>Simon</title>
 
 </head>
 
 <body>
-    
+    <h1>Welcome To The Simon Game!</h1>
+    <hr id="title-line">
+
+    <div id="rules-box">
+        <h2>How To Play:</h2>
+        <ol>
+            <li>Pay attention to the sequence of colors that the game presents to you. It will start with a single color and then gradually add more colors as you progress.</li>
+            <br>
+            <li>Click the buttons in the same order as the game shows you. Each click should correspond to one color in the sequence.</li>
+            <br>
+            <li>If you get the sequence correct (Score will go up by +1) all boxes will flash green three times and it will add a new color to the sequence for you to follow. </li>
+            <br>
+            <li>If you get the sequence wrong all boxes will flash red three times and your score will be reset back to 0 and you need to restart the game</li>
+            <br>
+            <li>To start game press Start Game!</li>
+        </ol>
+    </div>
+
+   <div id="game-box">
+
+   </div>
 </body>
 
 </html>
