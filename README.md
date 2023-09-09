@@ -12,6 +12,10 @@ Keep advancing through longer sequences to achieve a high score.
 ## Wire Frames
 ![IMG_3621](https://media.git.generalassemb.ly/user/49500/files/0b2712e0-067f-478c-8dd8-8cb9bdb1a0ad)
 
+## Planning 
+https://docs.google.com/document/d/1C52aMGDcCYBITnOu-xAdpoUfrdF0POjPHukrneCrJfc/edit?usp=sharing
+
+
 
 ## User Stories
 -As a player, I want to be able to start the sequence when I am ready to play, so I can read the rules of the game first 
