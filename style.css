@@ -3,6 +3,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;  /* looked this format up online to make an image fill the entire page */
+    position: relative;
+    
 }
 h1 {
     text-align: center;
@@ -14,6 +16,10 @@ h1 {
     border: none;
     color: black;
     background-color: black;
+}
+#container {
+    display: flex;
+    
 }
 #rules-box {
     width: 20vh;
@@ -30,3 +36,67 @@ ol {
     color: white;
     font-size: 1.7vh;
 }
+#game-box {
+    border: 0.5vh solid black;
+    margin: 1vh;
+    width:150vh;
+
+}
+#tiles {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    height: 50vh;
+
+}
+.tile {
+    height: 15vh;
+    width: 15vh;
+    background: black;
+    border: 5px;
+    cursor: pointer;
+    margin:15px 15px 15px 15px;
+
+}
+#startbutton {
+    cursor: pointer;
+    width: 50%;
+    height: 10vh;
+    font-size: 4vh;
+    background-color: black;
+    color: white;
+    border: none;
+}
+#containerbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#score-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#score {
+font-size: 4vh;
+border: 5px solid black;
+height: 13vh;
+width: 13vh;
+margin-top: 10px;
+margin-bottom: 10px;
+text-align: center;
+background-color: aliceblue;
+}
+#scorenum{
+font-size: 4vh;
+text-align: center;
+}
+/* Default styles for all screen sizes */
+@media screen and (max-width: 768px) {
+    /* Styles for screens with a maximum width of 768px */
+  }
+  @media screen and (max-width: 480px) {
+    /* Styles for screens with a maximum width of 480px (e.g., mobile devices) */
+  }
