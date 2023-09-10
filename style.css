@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;  /* looked this format up online to make an image fill the entire page */
-    position: relative;
+    
     
 }
 h1 {
@@ -19,6 +19,7 @@ h1 {
 }
 #container {
     display: flex;
+    
     
 }
 #rules-box {
@@ -43,11 +44,11 @@ ol {
 
 }
 #tiles {
-    margin: 40px auto;
+    margin: 10vh auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 3vh;
     height: 50vh;
 
 }
@@ -55,9 +56,9 @@ ol {
     height: 15vh;
     width: 15vh;
     background: black;
-    border: 5px;
+    border: 2vh;
     cursor: pointer;
-    margin:15px 15px 15px 15px;
+    margin: 4vh ;
 
 }
 #startbutton {
@@ -93,10 +94,13 @@ background-color: aliceblue;
 font-size: 4vh;
 text-align: center;
 }
-/* Default styles for all screen sizes */
 @media screen and (max-width: 768px) {
-    /* Styles for screens with a maximum width of 768px */
+    body {
+        background-size: contain;
+    }
   }
   @media screen and (max-width: 480px) {
-    /* Styles for screens with a maximum width of 480px (e.g., mobile devices) */
+    body {
+        background-size: cover;
+    }
   }
