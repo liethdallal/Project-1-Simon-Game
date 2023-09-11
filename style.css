@@ -20,7 +20,6 @@ h1 {
 #container {
     display: flex;
     
-    
 }
 #rules-box {
     width: 20vh;
@@ -69,6 +68,7 @@ ol {
     background-color: black;
     color: white;
     border: none;
+    display: block;
 }
 #containerbutton {
     display: flex;
@@ -95,12 +95,8 @@ font-size: 4vh;
 text-align: center;
 }
 @media screen and (max-width: 768px) {
-    body {
-        background-size: contain;
-    }
+
   }
   @media screen and (max-width: 480px) {
-    body {
-        background-size: cover;
-    }
+    
   }
