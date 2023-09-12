@@ -6,10 +6,10 @@ const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 const scoreNum = document.querySelector('.scorenum')
+const colors = ['Blue', 'Orange', 'Purple', 'Red', 'Green', 'Yellow']
 let gameStart = false
 let gameOver = false
 let audio = new Audio('./sound/audio.mp3')
-
 
 
 //-------------------------------------------------------Functions 
@@ -22,6 +22,7 @@ playMusic()
 function beginSequence(){
 //call start game function start the squence of tiles and keep adding them as long as the user gets it right 
 startGame()
+assignTileColors()
 
 
 }
@@ -40,13 +41,27 @@ function wrongSequence(){
 }
 function checkRightOrWrong(){
     //This will call both right and wrong sequnce depeding on click
-
+    
 }
+
 function playMusic(){
-audio.loop = true
-audio.play()
-
+    if (gameStart){
+        audio.loop = true
+        audio.play()
+    } else if (gameOver){
+        audio.pause
+    }
 }
+function assignTileColors() {
+    tiles.forEach(function assign(tile, index) {
+      const colorIndex = index % colors.length
+      const color = colors[colorIndex]
+      tile.dataset.color = color;
+      tile.addEventListener('click', function() {
+      tile.style.backgroundColor = tile.dataset.color; // Set the background color when clicked
+      });
+    });
+  }
   
 //--------------------------------------------------------------Event Listners
 tiles.forEach(button => {
