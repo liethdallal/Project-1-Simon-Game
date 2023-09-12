@@ -8,6 +8,7 @@ const startGameButton = document.querySelector('#startbutton')
 const scoreNum = document.querySelector('.scorenum')
 let gameStart = false
 let gameOver = false
+let audio = new Audio('./sound/audio.mp3')
 
 
 
@@ -16,15 +17,12 @@ function startGame() {
 //This will make game start true and remove start game display 
 startGameButton.style.display = 'none'
 gameStart = true
+playMusic()
 }
 function beginSequence(){
 //call start game function start the squence of tiles and keep adding them as long as the user gets it right 
 startGame()
-if(gameStart){
-    console.log('yes')
-} else {
-    console.log('no')
-}
+
 
 }
 function endSequence(){
@@ -44,7 +42,12 @@ function checkRightOrWrong(){
     //This will call both right and wrong sequnce depeding on click
 
 }
+function playMusic(){
+audio.loop = true
+audio.play()
 
+}
+  
 //--------------------------------------------------------------Event Listners
 tiles.forEach(button => {
     
