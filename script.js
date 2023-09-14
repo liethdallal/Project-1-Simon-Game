@@ -22,31 +22,28 @@ function playMusic(){//-------------------------------------------Assiting funct
         audio.loop = true
         audio.play()
 }
-function stopMusic(){
+function stopMusic(){//-----------------------------------------Assisting function
     audio.pause()
 }
-function startGame() {//------------------------------------------- Assiting function 
+function startGame() {//------------------------------------------- Main function 
 //This will make game start true and remove start game display 
 startGameButton.style.display = 'none'
-gameOver = false
 gameStart = true
 playMusic()
 assignTileColors()
+createSequence()
+
+
+
 }
 function assignTileColors() { //--------------------------------------Assisting function 
     tiles.forEach(function assign(tile, index) {
       const colorIndex = index % colors.length
       const color = colors[colorIndex]
       tile.dataset.color = color
-      tile.addEventListener('click', function() {
-        if(playerTurn){
-      tile.style.backgroundColor = tile.dataset.color; // Set the background color when clicked
-      checkRightOrWrong()
-        }
-      });
-    });
+    })
 }
-function flashTile(tileColor) {//------------------------------------- Assisting function 
+function flashTile(tileColor) {//------------------------------------- Used in Creat Sequence only! 
     tiles.forEach(tile => {
         if (tile.dataset.color === tileColor) {
             tile.style.backgroundColor = tileColor
@@ -62,35 +59,31 @@ function createSequence() {//------------------------------------------ Asisting
     let randomColorArray = colors[randomIndex]
     sequence.push(randomColorArray)
     // Flash the tile with the random color
-    flashTile(randomColorArray);
-    playerTurn = false
+    flashTile(randomColorArray)
     console.log(randomColorArray)
+    setTimeout(() => {
+        playerTurn = true;
+    }, 1000);
+  
    
-
-}
-
-function beginSequence(){//------------------------------------------- Main Function 
-//call start game function start the squence of tiles and keep adding them as long as the user gets it right 
-startGame()
-assignTileColors()
-createSequence()
-updateScore()
 
 }
 function checkRightOrWrong() {//---------------------------------------------Assisting function 
     // This will be called when the user clicks a tile
-    if (player.playerChoice.length === 0) {
+    if (player.playerChoice.length === 0 ) {
         return; // No user choice yet, do nothing
     }
     
-    if (player.playerChoice[player.playerChoice.length - 1] === sequence[player.playerChoice.length - 1]) {
+    if (player.playerChoice[player.playerChoice.length - 1] === sequence[player.playerChoice.length - 1] ) {
+        console.log('yes')
         // User's latest choice matches the sequence
         if (player.playerChoice.length === sequence.length) {
             // User completed the sequence
             player.playerScore++;
             updateScore()
             player.playerChoice = []
-            beginSequence()
+            playerTurn = false 
+            createSequence()
         }
     } else {
         
@@ -99,6 +92,7 @@ function checkRightOrWrong() {//---------------------------------------------Ass
 }
 function endGame() {//-----------------------------------------Assisting function 
     gameOver = true
+    playerTurn = false
     startGameButton.style.display = 'block' // Show the start game button
     player.playerChoice = []// Reset player's choice
     sequence = []// Reset the sequence
@@ -106,20 +100,34 @@ function endGame() {//-----------------------------------------Assisting functio
     updateScore()
     stopMusic() // Pause the audio
 }
-function updateScore() {//------------------------------------------------------Assiting function 
+function updateScore() {//------------------------------------------------------Used in end game and checkrightorwrong 
     scoreNum.textContent = player.playerScore; // Update the score displayed on the page
 }
 
 //--------------------------------------------------------------Event Listners
 tiles.forEach((button) => {
     button.addEventListener('click', function () {
-        if (!gameStart || playerTurn || gameOver) {
+        if (!gameStart || !playerTurn || gameOver) {
             return; 
+        } else {
+            player.playerChoice.push(button.dataset.color);
+            console.log(player.playerChoice);
         }
-        player.playerChoice.push(button.dataset.color);
-        checkRightOrWrong();
-        console.log(player.playerChoice)
-    });
-});
+       
+    })
+})
 
-startGameButton.addEventListener('click', beginSequence)
+tiles.forEach((tile) => {
+    tile.addEventListener('click', function() {
+        if (!playerTurn) {
+            return; // Only allow the player to click during their turn
+        } if (playerTurn){
+            tile.style.backgroundColor = tile.dataset.color;
+            setTimeout(() => {
+            tile.style.backgroundColor = "";
+            checkRightOrWrong();
+        }, 300)
+        }
+    })
+})
+startGameButton.addEventListener('click', startGame)
