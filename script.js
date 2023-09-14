@@ -50,7 +50,7 @@ function flashTile(tileColor) {//------------------------------------- Used in C
             tile.style.backgroundColor = tileColor
             setTimeout(() => {
                 tile.style.backgroundColor = "" // Reset the background color after a brief delay
-            }, 1000) // Adjust the duration the tile is lit up (in milliseconds)
+            }, 500) // Adjust the duration the tile is lit up (in milliseconds)
         }
     });
 }
@@ -66,7 +66,7 @@ function createSequence() {//------------------------------------------ Asisting
             flashTile(colorToFlash);
             setTimeout(() => {
                 playFullSequence(index + 1);
-            }, 1000); // Adjust the duration (in milliseconds) between each flash
+            }, 700); // Adjust the duration (in milliseconds) between each flash
         } else {
             // When the full sequence has been played, allow the player's turn
             playerTurn = true;
@@ -134,7 +134,7 @@ tiles.forEach((tile) => {
             setTimeout(() => {
             tile.style.backgroundColor = "";
             checkRightOrWrong();
-        }, 700)
+        }, 300)
         }
     })
 })
