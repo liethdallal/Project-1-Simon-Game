@@ -29,6 +29,7 @@ function startGame() {//------------------------------------------- Main functio
 //This will make game start true and remove start game display 
 startGameButton.style.display = 'none'
 gameStart = true
+gameOver = false
 playMusic()
 assignTileColors()
 createSequence()
@@ -59,14 +60,21 @@ function createSequence() {//------------------------------------------ Asisting
     let randomColorArray = colors[randomIndex]
     sequence.push(randomColorArray)
     // Flash the tile with the random color
-    flashTile(randomColorArray)
-    console.log(randomColorArray)
-    setTimeout(() => {
-        playerTurn = true;
-    }, 1000);
-  
-   
+    function playFullSequence(index) {
+        if (index < sequence.length) {
+            const colorToFlash = sequence[index];
+            flashTile(colorToFlash);
+            setTimeout(() => {
+                playFullSequence(index + 1);
+            }, 1000); // Adjust the duration (in milliseconds) between each flash
+        } else {
+            // When the full sequence has been played, allow the player's turn
+            playerTurn = true;
+        }
+    }
 
+    // Start playing the full sequence from the beginning
+    playFullSequence(0);
 }
 function checkRightOrWrong() {//---------------------------------------------Assisting function 
     // This will be called when the user clicks a tile
@@ -126,7 +134,7 @@ tiles.forEach((tile) => {
             setTimeout(() => {
             tile.style.backgroundColor = "";
             checkRightOrWrong();
-        }, 300)
+        }, 700)
         }
     })
 })
