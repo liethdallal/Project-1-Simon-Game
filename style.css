@@ -2,9 +2,7 @@ body {
     background-image: url('./img/desktop-wallpaper-waterdrops-bright-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;  /* looked this format up online to make an image fill the entire page */
-    
-    
+    background-attachment: fixed;  
 }
 h1 {
     text-align: center;
@@ -19,7 +17,6 @@ h1 {
 }
 #container {
     display: flex;
-    
 }
 #rules-box {
     width: 20vh;
@@ -40,7 +37,6 @@ ol {
     border: 0.5vh solid black;
     margin: 1vh;
     width:150vh;
-
 }
 #tiles {
     margin: 10vh auto;
@@ -49,7 +45,10 @@ ol {
     align-items: center;
     gap: 3vh;
     height: 50vh;
-
+    text-align: center;
+    color: aliceblue;
+    line-height: 15vh;
+    font-size: 3vh;
 }
 .tile {
     height: 15vh;
@@ -58,7 +57,24 @@ ol {
     border: 2vh;
     cursor: pointer;
     margin: 4vh ;
-
+}
+.blue {
+    color: blue;
+}
+.orange {
+    color: orange;
+}
+.purple {
+    color: purple;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.yellow{
+    color: yellow;
 }
 #startbutton {
     cursor: pointer;
@@ -96,7 +112,7 @@ text-align: center;
 }
 @media screen and (max-width: 768px) {
 
-  }
-  @media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 480px) {
     
-  }
+}
