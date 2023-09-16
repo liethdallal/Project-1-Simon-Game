@@ -45,10 +45,6 @@ ol {
     align-items: center;
     gap: 3vh;
     height: 50vh;
-    text-align: center;
-    color: aliceblue;
-    line-height: 15vh;
-    font-size: 3vh;
 }
 .tile {
     height: 15vh;
@@ -57,24 +53,6 @@ ol {
     border: 2vh;
     cursor: pointer;
     margin: 4vh ;
-}
-.blue {
-    color: blue;
-}
-.orange {
-    color: orange;
-}
-.purple {
-    color: purple;
-}
-.red {
-    color: red;
-}
-.green {
-    color: green;
-}
-.yellow{
-    color: yellow;
 }
 #startbutton {
     cursor: pointer;

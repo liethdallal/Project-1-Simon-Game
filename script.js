@@ -9,7 +9,7 @@ const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
-let colors = ['Blue', 'Orange', 'Purple', 'Red', 'Green', 'Yellow']
+let colors = ['Blue', 'Orange', 'Green', 'Red']
 let gameStart = false
 let gameOver = false
 let playerTurn = false
@@ -50,10 +50,15 @@ function assignTileColors() {
 }
 
 function createSequence() {
-    let randomIndex = Math.floor(Math.random() * colors.length)
-    let randomColorArray = colors[randomIndex]
-    sequence.push(randomColorArray)
-    playFullSequence(0)
+    setTimeout(() => {
+        let randomIndex = Math.floor(Math.random() * colors.length)
+        let randomColorArray = colors[randomIndex]
+        sequence.push(randomColorArray)
+        playFullSequence(0)
+    }, 150)
+   
+  
+   
 }
 
 function flashTile(tileColor) {
@@ -61,7 +66,7 @@ function flashTile(tileColor) {
         if (tile.dataset.color === tileColor) {
             tile.style.backgroundColor = tileColor
             setTimeout(() => {
-                tile.style.backgroundColor = ""
+                tile.style.backgroundColor = ''
             }, 500) 
         }
     })
@@ -92,7 +97,13 @@ function checkRightOrWrong() {
             updateScore()
             player.playerChoice = []
             playerTurn = false 
+            flashGreen()
+            setTimeout(() => {
             createSequence()
+            }, 1100)
+            
+            
+           
         }
     } else {
         
@@ -100,7 +111,26 @@ function checkRightOrWrong() {
     }
 }
 
+function flashGreen(){
+    tiles.forEach((tile) => {
+    tile.style.backgroundColor = 'green'
+    setTimeout(() => {
+        tile.style.backgroundColor = 'black'
+    }, 500)
+    })
+ }
+
+ function flashRed(){
+    tiles.forEach((tile) => {
+        tile.style.backgroundColor = 'red'
+        setTimeout(() => {
+            tile.style.backgroundColor = 'black'
+        }, 500)
+        })
+ }
+
 function endGame() {
+    flashRed()
     gameOver = true
     playerTurn = false
     startGameButton.style.display = 'block' 
