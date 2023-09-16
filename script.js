@@ -9,11 +9,13 @@ const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
+const volumeSlider = document.getElementById('volumeSlider')
 let colors = ['Blue', 'Orange', 'Green', 'Red']
 let gameStart = false
 let gameOver = false
 let playerTurn = false
 let audio = new Audio('./sound/audio.mp3')
+audio.volume = 0
 let sequence = []
 
 
@@ -56,9 +58,6 @@ function createSequence() {
         sequence.push(randomColorArray)
         playFullSequence(0)
     }, 150)
-   
-  
-   
 }
 
 function flashTile(tileColor) {
@@ -78,7 +77,7 @@ function playFullSequence(index) {
         flashTile(colorToFlash)
         setTimeout(() => {
             playFullSequence(index + 1)
-        }, 700)
+        }, 600)
     } else {
         playerTurn = true
     }
@@ -89,48 +88,37 @@ function checkRightOrWrong() {
     if (player.playerChoice.length === 0 ) {
         return 
     }
-    
     if (player.playerChoice[player.playerChoice.length - 1] === sequence[player.playerChoice.length - 1] ) {
-        console.log('yes')
-        if (player.playerChoice.length === sequence.length) {
-            player.playerScore++
-            updateScore()
-            player.playerChoice = []
-            playerTurn = false 
-            flashGreen()
-            setTimeout(() => {
-            createSequence()
-            }, 1100)
-            
-            
-           
-        }
+        correct()
     } else {
-        
         endGame()
     }
 }
 
-function flashGreen(){
-    tiles.forEach((tile) => {
-    tile.style.backgroundColor = 'green'
-    setTimeout(() => {
-        tile.style.backgroundColor = 'black'
-    }, 500)
-    })
- }
+function correct() {
+    if (player.playerChoice.length === sequence.length) {
+        player.playerScore++
+        updateScore()
+        player.playerChoice = []
+        playerTurn = false 
+        flash('green')
+        setTimeout(() => {
+        createSequence()
+        }, 1100)
+    }
+}
 
- function flashRed(){
+function flash(color) {
     tiles.forEach((tile) => {
-        tile.style.backgroundColor = 'red'
+        tile.style.backgroundColor = color
         setTimeout(() => {
             tile.style.backgroundColor = 'black'
         }, 500)
         })
- }
+}
 
 function endGame() {
-    flashRed()
+    flash('red')
     gameOver = true
     playerTurn = false
     startGameButton.style.display = 'block' 
@@ -167,10 +155,15 @@ tiles.forEach((button) => {
             return
         } else {
             player.playerChoice.push(button.dataset.color)
-            console.log(player.playerChoice)
         }
        
     })
 })
 
+volumeSlider.addEventListener('input', function () {
+    const volume = volumeSlider.value / 100
+    audio.volume = volume
+  })
+
+ 
 

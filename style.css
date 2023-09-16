@@ -75,18 +75,37 @@ ol {
     align-items: center;
 }
 #score {
-font-size: 4vh;
-border: 5px solid black;
-height: 13vh;
-width: 13vh;
-margin-top: 10px;
-margin-bottom: 10px;
-text-align: center;
-background-color: aliceblue;
+    font-size: 4vh;
+    border: 5px solid black;
+    height: 13vh;
+    width: 13vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: aliceblue;
 }
 #scorenum{
-font-size: 4vh;
-text-align: center;
+    font-size: 4vh;
+    text-align: center;
+}
+.volume-control{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.newC {
+    font-size: 4vh;
+    border: 5px solid black;
+    height: 23vh;
+    width: 25vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: aqua;
+}
+p {
+    font-size: 4vh;
+    text-align: center;
 }
 @media screen and (max-width: 768px) {
 
