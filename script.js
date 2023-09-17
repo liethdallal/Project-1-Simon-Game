@@ -15,7 +15,7 @@ let gameStart = false
 let gameOver = false
 let playerTurn = false
 let audio = new Audio('./sound/audio.mp3')
-audio.volume = 0
+audio.volume = 1
 let sequence = []
 
 
