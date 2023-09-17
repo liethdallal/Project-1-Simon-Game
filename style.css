@@ -1,3 +1,10 @@
+html,body{ 
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+ }
+
 body {
     background-image: url('./img/abstract-decorative-circular-stripes-seamless-pattern-design_1035-25453.avif');
 }
@@ -25,6 +32,7 @@ h1 {
     align-items: flex-start;
     background-color: black;
     color: aqua;
+    
 }
 ol {
     color: white;
@@ -34,6 +42,7 @@ ol {
     border: 0.5vh solid black;
     margin: 1vh;
     width:150vh;
+    
 }
 #tiles {
     margin: 10vh auto;
@@ -74,14 +83,18 @@ ol {
 #score {
     font-size: 4vh;
     border: 5px solid black;
-    height: 13vh;
-    width: 13vh;
+    height: 17vh;
+    width: 17vh;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
     background-color: aliceblue;
 }
 #scorenum{
+    font-size: 4vh;
+    text-align: center;
+}
+#highestscorenum{
     font-size: 4vh;
     text-align: center;
 }
@@ -92,7 +105,7 @@ ol {
 }
 .newC {
     font-size: 4vh;
-    border: 5px solid blue;
+    border: 5px solid black;
     height: 23vh;
     width: 25vh;
     margin-top: 10px;
@@ -101,7 +114,7 @@ ol {
     background-color: black;
 }
 p {
-    color: aqua;
+    color: white;
     font-size: 4vh;
     text-align: center;
 }

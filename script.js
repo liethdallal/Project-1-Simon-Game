@@ -3,12 +3,14 @@
 let player ={
 playerName: '',
 playerChoice: [],
-playerScore: 0
+playerScore: 0,
+playerHighestScore: 0
 }
 const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
+let highScoreElement = document.querySelector('#highestscorenum')
 const volumeSlider = document.getElementById('volumeSlider')
 let colors = ['Blue', 'Orange', 'Green', 'Red']
 let gameStart = false
@@ -16,6 +18,7 @@ let gameOver = false
 let playerTurn = false
 let audio = new Audio('./sound/audio.mp3')
 audio.volume = 1
+let highScore = 0
 let sequence = []
 
 
@@ -32,6 +35,14 @@ function stopMusic(){
 
 function updateScore() {
     scoreNum.textContent = player.playerScore 
+}
+
+function updateHighScore() {
+    const currentScore = parseFloat(scoreNum.innerHTML);
+    if (currentScore > highScore) {
+        highScore = currentScore;
+        highScoreElement.textContent = highScore;
+    }
 }
 
 function startGame() {
@@ -99,6 +110,7 @@ function correct() {
     if (player.playerChoice.length === sequence.length) {
         player.playerScore++
         updateScore()
+        updateHighScore()
         player.playerChoice = []
         playerTurn = false 
         flash('green')
