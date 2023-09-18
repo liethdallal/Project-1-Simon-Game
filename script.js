@@ -1,7 +1,6 @@
 'use strict'
 //------------------------------------------------Variables 
 let player ={
-playerName: '',
 playerChoice: [],
 playerScore: 0,
 playerHighestScore: 0
@@ -16,28 +15,31 @@ let colors = ['Blue', 'Orange', 'Green', 'Red']
 let gameStart = false
 let gameOver = false
 let playerTurn = false
-let audio = new Audio('./sound/audio.mp3')
-audio.volume = 1
+let backgroundAudio = new Audio('./sound/background.mp3')
+let tileAudios = new Audio('./sound/tile.mp3')
+let correcto = new Audio('./sound/correct.mp3')
+let wrong = new Audio('./sound/wrong.mp3')
+backgroundAudio.volume = 1 //Used for inital volume of game
 let highScore = 0
 let sequence = []
 
 
 //-------------------------------------------------------Functions 
 
-function playMusic(){
-    audio.loop = true
-    audio.play()
+function playMusic(){ //plays background music 
+    backgroundAudio.loop = true
+    backgroundAudio.play()
 }
 
-function stopMusic(){
-    audio.pause()
+function stopMusic(){ //pauses background music 
+    backgroundAudio.pause()
 }
 
-function updateScore() {
+function updateScore() { //updates score after user action
     scoreNum.textContent = player.playerScore 
 }
 
-function updateHighScore() {
+function updateHighScore() { //Updates only when user reaches a high score 
     const currentScore = parseFloat(scoreNum.innerHTML);
     if (currentScore > highScore) {
         highScore = currentScore;
@@ -45,7 +47,7 @@ function updateHighScore() {
     }
 }
 
-function startGame() {
+function startGame() { //starts the game
     startGameButton.style.display = 'none'
     gameStart = true
     gameOver = false
@@ -54,7 +56,7 @@ function startGame() {
     createSequence()
 }
 
-function assignTileColors() { 
+function assignTileColors() { //Used to assign colors to each tile 
     tiles.forEach(function assign(tile, index) {
       const colorIndex = index % colors.length
       const color = colors[colorIndex]
@@ -62,7 +64,7 @@ function assignTileColors() {
     })
 }
 
-function createSequence() {
+function createSequence() { //Selects a random color and adds it to sequence 
     setTimeout(() => {
         let randomIndex = Math.floor(Math.random() * colors.length)
         let randomColorArray = colors[randomIndex]
@@ -71,7 +73,7 @@ function createSequence() {
     }, 150)
 }
 
-function flashTile(tileColor) {
+function flashTile(tileColor) {//Used to flash the color on the screen for the user
     tiles.forEach(tile => {
         if (tile.dataset.color === tileColor) {
             tile.style.backgroundColor = tileColor
@@ -82,10 +84,11 @@ function flashTile(tileColor) {
     })
 }
 
-function playFullSequence(index) {
+function playFullSequence(index) {//plays sequence from the beggining 
     if (index < sequence.length) {
         const colorToFlash = sequence[index]
         flashTile(colorToFlash)
+        tileAudios.play()
         setTimeout(() => {
             playFullSequence(index + 1)
         }, 600)
@@ -95,7 +98,7 @@ function playFullSequence(index) {
 }
 
 
-function checkRightOrWrong() {
+function checkRightOrWrong() {//Used to check user answer 
     if (player.playerChoice.length === 0 ) {
         return 
     }
@@ -106,21 +109,22 @@ function checkRightOrWrong() {
     }
 }
 
-function correct() {
+function correct() { //Checks if user selects the right sequnce 
     if (player.playerChoice.length === sequence.length) {
         player.playerScore++
         updateScore()
         updateHighScore()
         player.playerChoice = []
         playerTurn = false 
-        flash('green')
+        flash('green') //Flashes the tiles to show user correct sequence wa clicked 
+        correcto.play()
         setTimeout(() => {
         createSequence()
         }, 1100)
     }
 }
 
-function flash(color) {
+function flash(color) { //A way for the tiles to flash any color i want when needed
     tiles.forEach((tile) => {
         tile.style.backgroundColor = color
         setTimeout(() => {
@@ -129,8 +133,9 @@ function flash(color) {
         })
 }
 
-function endGame() {
+function endGame() {//Resets all scores and displays 
     flash('red')
+    wrong.play()
     gameOver = true
     playerTurn = false
     startGameButton.style.display = 'block' 
@@ -147,11 +152,12 @@ function endGame() {
 
 startGameButton.addEventListener('click', startGame)
 
-tiles.forEach((tile) => {
+tiles.forEach((tile) => { //only allows player to play on his turn 
     tile.addEventListener('click', function() {
         if (!playerTurn) {
             return
         } if (playerTurn){
+            tileAudios.play()
             tile.style.backgroundColor = tile.dataset.color
             setTimeout(() => {
             tile.style.backgroundColor = ""
@@ -161,7 +167,7 @@ tiles.forEach((tile) => {
     })
 })
 
-tiles.forEach((button) => {
+tiles.forEach((button) => { //Collects player choices in order after click
     button.addEventListener('click', function () {
         if (!gameStart || !playerTurn || gameOver) {
             return
@@ -172,9 +178,9 @@ tiles.forEach((button) => {
     })
 })
 
-volumeSlider.addEventListener('input', function () {
+volumeSlider.addEventListener('input', function () { //controls volume box
     const volume = volumeSlider.value / 100
-    audio.volume = volume
+    backgroundAudio.volume = volume
   })
 
  
