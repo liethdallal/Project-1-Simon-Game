@@ -35,9 +35,9 @@ Goals:
 
 -The score continues to go up after every additional color sequence is clicked
 
--The boxes all flash green 3 times after each correct sequence 
+-The boxes all flash green after each correct sequence 
 
--The boxes all flash red 3 times when the wrong sequence is clicked
+-The boxes all flash red when the wrong sequence is clicked
 
 
 ### Stretch Goals
