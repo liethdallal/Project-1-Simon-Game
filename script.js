@@ -19,7 +19,10 @@ let backgroundAudio = new Audio('./sound/background.mp3')
 let tileAudios = new Audio('./sound/tile.mp3')
 let correcto = new Audio('./sound/correct.mp3')
 let wrong = new Audio('./sound/wrong.mp3')
-backgroundAudio.volume = 1 //Used for inital volume of game
+tileAudios.volume = 0.3
+correcto.volume = 0.3
+wrong.volume = 0.3
+backgroundAudio.volume = 0.3 
 let highScore = 0
 let sequence = []
 
