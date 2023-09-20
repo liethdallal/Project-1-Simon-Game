@@ -5,20 +5,24 @@ playerChoice: [],
 playerScore: 0,
 playerHighestScore: 0
 }
+
 const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
 let highScoreElement = document.querySelector('#highestscorenum')
 const volumeSlider = document.getElementById('volumeSlider')
-let colors = ['Blue', 'Orange', 'Green', 'Red']
-let gameStart = false
-let gameOver = false
-let playerTurn = false
+
+
 let backgroundAudio = new Audio('./sound/background.mp3')
 let tileAudios = new Audio('./sound/tile.mp3')
 let correcto = new Audio('./sound/correct.mp3')
 let wrong = new Audio('./sound/wrong.mp3')
+
+let colors = ['Blue', 'Orange', 'Green', 'Red']
+let gameStart = false
+let gameOver = false
+let playerTurn = false
 tileAudios.volume = 0.3
 correcto.volume = 0.3
 wrong.volume = 0.3
