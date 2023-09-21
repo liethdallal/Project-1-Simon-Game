@@ -119,6 +119,9 @@ p {
     font-size: 4vh;
     text-align: center;
 }
+ol {
+    padding-left: 0;
+}
 @media (max-width: 480px){
    html {
     height: 100vh;

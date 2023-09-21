@@ -10,7 +10,7 @@ const tilesContainer = document.querySelector('#tiles')
 const tiles = document.querySelectorAll('.tile')
 const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
-let highScoreElement = document.querySelector('#highestscorenum')
+let highScoreNum = document.querySelector('#highestscorenum')
 const volumeSlider = document.getElementById('volumeSlider')
 
 
@@ -23,10 +23,6 @@ let colors = ['Blue', 'Orange', 'Green', 'Red']
 let gameStart = false
 let gameOver = false
 let playerTurn = false
-tileAudios.volume = 0.3
-correcto.volume = 0.3
-wrong.volume = 0.3
-backgroundAudio.volume = 0.3 
 let highScore = 0
 let sequence = []
 
@@ -47,10 +43,10 @@ function updateScore() { //updates score after user action
 }
 
 function updateHighScore() { //Updates only when user reaches a high score 
-    const currentScore = parseFloat(scoreNum.innerHTML);
+    const currentScore = parseFloat(scoreNum.innerHTML)
     if (currentScore > highScore) {
-        highScore = currentScore;
-        highScoreElement.textContent = highScore;
+        highScore = currentScore
+        highScoreNum.textContent = highScore
     }
 }
 
@@ -65,8 +61,7 @@ function startGame() { //starts the game
 
 function assignTileColors() { //Used to assign colors to each tile 
     tiles.forEach(function assign(tile, index) {
-      const colorIndex = index % colors.length
-      const color = colors[colorIndex]
+      const color = colors[index]
       tile.dataset.color = color
     })
 }
@@ -106,7 +101,7 @@ function playFullSequence(index) {//plays sequence from the beggining
 
 
 function checkRightOrWrong() {//Used to check user answer 
-    if (player.playerChoice.length === 0 ) {
+    if (player.playerChoice.length === 0 ) { // in case the user selcts nothing yet
         return 
     }
     if (player.playerChoice[player.playerChoice.length - 1] === sequence[player.playerChoice.length - 1] ) {
@@ -161,8 +156,8 @@ startGameButton.addEventListener('click', startGame)
 
 tiles.forEach((tile) => { //only allows player to play on his turn 
     tile.addEventListener('click', function() {
-        if (!playerTurn) {
-            return
+        if (!gameStart || !playerTurn || gameOver) { //prevents manipulation
+            return 
         } if (playerTurn){
             tileAudios.play()
             tile.style.backgroundColor = tile.dataset.color
@@ -176,7 +171,7 @@ tiles.forEach((tile) => { //only allows player to play on his turn
 
 tiles.forEach((button) => { //Collects player choices in order after click
     button.addEventListener('click', function () {
-        if (!gameStart || !playerTurn || gameOver) {
+        if (!gameStart || !playerTurn || gameOver) { //prevents manipulation
             return
         } else {
             player.playerChoice.push(button.dataset.color)
