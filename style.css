@@ -67,11 +67,23 @@ ol {
     color: white;
     border: none;
     display: block;
+    margin-left: 10px;
 }
 #containerbutton {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+}
+#resetbutton {
+    cursor: pointer;
+    width: 400px; 
+    height: 100px; 
+    font-size: 40px; 
+    background-color: darkgray;
+    color: black;
+    border: none;
+    margin-right: 10px;
 }
 #score-box {
     display: flex;
@@ -119,7 +131,7 @@ ol {
     padding-left: 0;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1070px) {
     h1 {
         font-size: 20px;
     }
@@ -158,6 +170,12 @@ ol {
         margin: 10px; 
     }
     #startbutton {
+        width: 80%; 
+        height: 60px; 
+        font-size: 24px; 
+        margin: 10px; 
+    }
+    #resetbutton {
         width: 80%; 
         height: 60px; 
         font-size: 24px; 

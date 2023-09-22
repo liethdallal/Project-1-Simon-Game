@@ -16,7 +16,7 @@ Keep advancing through longer sequences to achieve a high score.
 https://docs.google.com/document/d/1C52aMGDcCYBITnOu-xAdpoUfrdF0POjPHukrneCrJfc/edit?usp=sharing
 
 ## Picture of Completed Game
-![Completed Game](image.png)
+![Completed Game](image-1.png)
 
 ## Installation instructions & Technologies Used 
 A game made using HTML CSS and Javascript. 

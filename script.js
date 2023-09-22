@@ -12,6 +12,7 @@ const startGameButton = document.querySelector('#startbutton')
 let scoreNum = document.querySelector('#scorenum')
 let highScoreNum = document.querySelector('#highestscorenum')
 const volumeSlider = document.getElementById('volumeSlider')
+const resetSequence = document.getElementById('resetbutton')
 
 
 let backgroundAudio = new Audio('./sound/background.mp3')
@@ -135,6 +136,22 @@ function flash(color) { //A way for the tiles to flash any color i want when nee
         })
 }
 
+function restartS(){ //A way for the user to restart game 
+    if (playerTurn){
+        wrong.play()
+        gameOver = true
+        playerTurn = false
+        startGameButton.style.display = 'block' 
+        player.playerChoice = []
+        sequence = []
+        player.playerScore = 0 
+        updateScore()
+        stopMusic() 
+        startGame()
+    }
+}
+
+
 function endGame() {//Resets all scores and displays 
     flash('red')
     wrong.play()
@@ -151,6 +168,8 @@ function endGame() {//Resets all scores and displays
 //--------------------------------------------------------------Event Listners
 
 startGameButton.addEventListener('click', startGame)
+
+resetSequence.addEventListener('click', restartS)
 
 tiles.forEach((tile) => { //only allows player to play on his turn 
     tile.addEventListener('click', function() {
@@ -182,6 +201,7 @@ volumeSlider.addEventListener('input', function () { //controls volume box
     const volume = volumeSlider.value / 100
     backgroundAudio.volume = volume
   })
+
 
  
 
