@@ -1,12 +1,11 @@
-html,body{ 
-    margin:0;
-    padding:0;
-    height:100%;
-    width:100%;
- }
-
+html {
+    height: 100%;
+    width: 100%;
+}
 body {
     background-image: url('./img/backgroundPhoto.avif');
+    margin: 0;
+    padding: 0;
 }
 h1 {
     text-align: center;
@@ -14,58 +13,56 @@ h1 {
 }
 #title-line {
     width: 50%;
-    height: 1vh;
+    height: 10px;
     border: none;
     color: black;
     background-color: black;
 }
 #container {
     display: flex;
+    justify-content: center;
 }
 #rules-box {
-    width: 20vh;
-    border: 0.5vh solid blue;
-    padding: 1vh;
-    margin: 1vh;
+    width: 250px;
+    border: 26px solid black;
+    padding: 1px;
+    margin: 1px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     background-color: black;
-    color: aqua;
-    
+    color: darkgray;
 }
 ol {
     color: white;
-    font-size: 1.7vh;
+    font-size: 17px;
 }
 #game-box {
-    border: 0.5vh solid black;
-    margin: 1vh;
-    width:150vh;
-    
+    border: 7px solid black;
+    margin: 5px;
+    width: fit-content;
+    height:fit-content
 }
 #tiles {
-    margin: 10vh auto;
+    margin: 150px auto; 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 3vh;
-    height: 50vh;
+    gap: 20px; 
+    height: 150px; 
 }
 .tile {
-    height: 15vh;
-    width: 15vh;
+    height: 112.5px; 
+    width: 112.5px; 
     background: black;
-    border: 2vh;
+    border: 22.5px; 
     cursor: pointer;
-    margin: 4vh ;
+    margin: 30px; 
 }
 #startbutton {
     cursor: pointer;
-    width: 50%;
-    height: 10vh;
-    font-size: 4vh;
+    width: 400px; 
+    height: 100px; 
+    font-size: 40px; 
     background-color: black;
     color: white;
     border: none;
@@ -82,33 +79,32 @@ ol {
     align-items: center;
 }
 #score {
-    font-size: 4vh;
+    font-size: 30px;
     border: 5px solid black;
-    height: 17vh;
-    width: 17vh;
+    height: 100px; 
+    width: 200px; 
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
     background-color: aliceblue;
 }
-#scorenum{
-    font-size: 4vh;
+#scorenum {
+    font-size: 40px;
     text-align: center;
 }
-#highestscorenum{
-    font-size: 4vh;
+#highestscorenum {
+    font-size: 40px; 
     text-align: center;
 }
-.volume-control{
+.volume-control {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 .newC {
-    font-size: 4vh;
     border: 5px solid black;
-    height: 23vh;
-    width: 25vh;
+    height: 150px; 
+    width: 375px; 
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -116,22 +112,80 @@ ol {
 }
 p {
     color: white;
-    font-size: 4vh;
+    font-size: 30px; 
     text-align: center;
 }
 ol {
     padding-left: 0;
 }
-@media (max-width: 480px){
-   html {
-    height: 100vh;
-    width: 100vh;
+
+
+
+
+@media (max-width: 970px) {
+    h1 {
+        font-size: 20px;
+    }
+    #title-line {
+        height: 5px;
+    }
+    #container {
+        flex-direction: column-reverse; 
+        align-items: center; 
+    }
+    #rules-box {
+        border: 10px solid black; 
+        padding: 10px; 
+        margin: 10px; 
+        align-items: center; 
+        text-align: center; 
+    }
+    ol {
+        font-size: 13px; 
+    }
+    #game-box {
+        width: 89%; 
+        height: fit-content;
+        border: 5px solid black; 
+        margin: 10px; 
+    }
+    #tiles {
+       padding: 0;
+       margin: 20px;
+       height: 60px;
+    }
+    .tile {
+        height: 80px; 
+        width: 80px; 
+        border: 10px; 
+        margin: 10px; 
+    }
+    #startbutton {
+        width: 80%; 
+        height: 60px; 
+        font-size: 24px; 
+        margin: 10px; 
+    }
+    #score-box {
+        flex-direction: column; 
+    }
+    #score {
+        width: 50%;
+        max-width: none; 
+        font-size: 24px;
+        height: auto; 
+    }
+    #scorenum {
+        font-size: 24px;   
+    }
+    #highestscorenum {
+        font-size: 24px; 
+    }
+   .newC{
+        height: 120px;
+        width: 150px;
    }
- 
-}
-@media (max-width: 768px) {
-    html {
-        height: 100vh;
-        width: 100vh;
-       }
+    p{
+        font-size: 20px; 
+    }
 }
