@@ -148,8 +148,6 @@ function endGame() {//Resets all scores and displays
     stopMusic() 
 }
 
-
-
 //--------------------------------------------------------------Event Listners
 
 startGameButton.addEventListener('click', startGame)

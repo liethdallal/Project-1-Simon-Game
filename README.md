@@ -10,11 +10,25 @@ Keep advancing through longer sequences to achieve a high score.
 
 
 ## Wire Frames
-![IMG_3621](https://media.git.generalassemb.ly/user/49500/files/0b2712e0-067f-478c-8dd8-8cb9bdb1a0ad)
+![Sketched Game](https://media.git.generalassemb.ly/user/49500/files/0b2712e0-067f-478c-8dd8-8cb9bdb1a0ad)
 
 ## Planning 
 https://docs.google.com/document/d/1C52aMGDcCYBITnOu-xAdpoUfrdF0POjPHukrneCrJfc/edit?usp=sharing
 
+## Picture of Completed Game
+![Completed Game](image.png)
+
+## Installation instructions & Technologies Used 
+A game made using HTML CSS and Javascript. 
+Went through a series of psuedocoding phases to make the game alive 
+
+
+## Major Hurdles & Unsolved Problems 
+Major Hurdles: 
+A major hurdle for me was the css of my game. I started off using 'vh' as a unite for all my fonts and margins to try to adjust to all screen sizes till I found out how to keep things in px and adjust media quory in the exact way I wanted to!
+
+Unsolved Problems: 
+A unsolved problem for me is the leaderboards however there was just not enough time so this was not necessarily a problem just somthing I have not gotten to. 
 
 
 ## User Stories
