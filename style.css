@@ -120,10 +120,11 @@ ol {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    background-color: black;
+    background-color: white;
+
 }
 p {
-    color: white;
+    color: black;
     font-size: 30px; 
     text-align: center;
 }
