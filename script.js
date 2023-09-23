@@ -87,6 +87,11 @@ function flashTile(tileColor) {//Used to flash the color on the screen for the u
     })
 }
 
+function volumeSlide() {
+    const volume = volumeSlider.value / 100
+    backgroundAudio.volume = volume
+}
+
 function playFullSequence(index) {//plays sequence from the beggining 
     if (index < sequence.length) {
         const colorToFlash = sequence[index]
@@ -171,6 +176,9 @@ startGameButton.addEventListener('click', startGame)
 
 resetSequence.addEventListener('click', restartS)
 
+volumeSlider.addEventListener('input', volumeSlide)
+
+
 tiles.forEach((tile) => { //only allows player to play on his turn 
     tile.addEventListener('click', function() {
         if (!gameStart || !playerTurn || gameOver) { //prevents manipulation
@@ -197,10 +205,6 @@ tiles.forEach((button) => { //Collects player choices in order after click
     })
 })
 
-volumeSlider.addEventListener('input', function () { //controls volume box
-    const volume = volumeSlider.value / 100
-    backgroundAudio.volume = volume
-  })
 
 
  
