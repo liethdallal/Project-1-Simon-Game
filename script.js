@@ -44,7 +44,7 @@ function updateScore() { //updates score after user action
 }
 
 function updateHighScore() { //Updates only when user reaches a high score 
-    const currentScore = parseFloat(scoreNum.innerHTML)
+    const currentScore = scoreNum.textContent
     if (currentScore > highScore) {
         highScore = currentScore
         highScoreNum.textContent = highScore
