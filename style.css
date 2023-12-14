@@ -1,11 +1,17 @@
 body {
-    background-image: url('./img/backgroundPhoto.avif');
+    background-image: url('./img/backgroundphoto.jpg');
     margin: 0;
     padding: 0;
+    animation: fadeInUp 1.5s ease-out;
+
 }
 h1 {
     text-align: center;
     font-family: 'Merriweather', serif;
+    animation: float 3s ease-in-out infinite;
+    margin: 20px;
+    color: white;
+    background-color: black;
 }
 #title-line {
     width: 50%;
@@ -27,6 +33,7 @@ h1 {
     flex-direction: column;
     background-color: black;
     color: darkgray;
+    border-radius: 10%;
 }
 ol {
     color: white;
@@ -63,7 +70,11 @@ ol {
     color: white;
     border: none;
     display: block;
-    margin-left: 10px;
+    margin-left: 20px;
+    border-radius: 60%;
+}
+#startbutton:hover{
+    animation: popOut 1s ease-in-out infinite;
 }
 #containerbutton {
     display: flex;
@@ -80,11 +91,17 @@ ol {
     color: black;
     border: none;
     margin-right: 10px;
+    border-radius: 60%;
+
+}
+#resetbutton:hover{
+    animation: popOut 1s ease-in-out infinite;
 }
 #score-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 #score {
     font-size: 30px;
@@ -126,6 +143,47 @@ p {
 }
 ol {
     padding-left: 0;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes popOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#title-container{
+display: flex;
+justify-content: center;
+align-items: flex-start;
+}
+#logo{
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 70px;
+    background-color: black;
 }
 
 @media (max-width: 1085px) {
