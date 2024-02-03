@@ -2,7 +2,7 @@
 The Simon game is a memory game where the user needs to follow a specific sequence of colors to earn a score. The longer you are able to follow additional sequences it provides the higher your score will be.
 
 How to play: 
-
+ 
 Simon will show a sequence of colors and tones (through boxes).
 Repeat the sequence by pressing the buttons in the same order.
 If you make a mistake or press the wrong button, the game ends (the score goes back to 0).
